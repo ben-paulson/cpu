@@ -1,0 +1,33 @@
+#########
+#Exclude all
+#########
+*
+!*/
+!.gitignore
+!*.md # Do not ignore readme
+#########
+#Source files:
+#########
+#Do NOT ignore VHDL, Verilog, block diagrams or EDIF files.
+!*.vhd
+!*.v
+!*.bd
+!*.edif
+!*.sv
+#########
+#Project files
+#########
+#Do NOT ignore *.xpr files
+!*.xpr
+#########
+#Constraint files
+#########
+#Do NOT ignore *.xdc files
+!*.xdc
+#########
+#Include mem files
+!*.mem
+####
+# Include assembly files
+!*.s
+####
