@@ -8,7 +8,7 @@ module reg_8bit_74hc374(
     );
     
     always @ (posedge clk) begin
-        if (oe == 0) data_out = 8'bzzzzzzzz;
+        if (oe == 1) data_out = 8'bzzzzzzzz;
         else data_out = data_in;
     end
     

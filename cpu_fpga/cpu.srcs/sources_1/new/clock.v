@@ -2,10 +2,10 @@
 
 module clock(
     input clk_100,
+    output clk_40,
     output reg clk_5
     );
     
-    wire clk_40;
     initial clk_5 = 0;
     
     clk_wiz_0 clk_vga (
