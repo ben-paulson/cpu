@@ -29,6 +29,8 @@ module reg_8bit_tb();
         d_in = 8'h34;
         #7;
         oe = 1; // high impedance
+        #15;
+        oe = 0;
     end
 
 endmodule
