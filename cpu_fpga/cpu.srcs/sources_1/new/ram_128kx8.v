@@ -1,5 +1,8 @@
 `timescale 1ns / 1ps
 
+/*
+ * Asynchronous, 128k X 8 RAM
+ */
 module ram_128kx8 # (filename = "memory.mem") (
     input [7:0] data_in,
     input [16:0] addr,
