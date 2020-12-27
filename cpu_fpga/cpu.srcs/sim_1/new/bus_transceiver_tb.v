@@ -2,26 +2,20 @@
 
 module bus_transceiver_tb();
 
-    reg [7:0] A_in;
-    reg [7:0] B_in;
+    wire [7:0] A = 8'h10;
+    wire [7:0] B;
     reg dir, oe;
-    wire [7:0] A_out;
-    wire [7:0] B_out;
     
     bus_transceiver_74hc245 buff (
-        .A_in  (A_in),
-        .B_in  (B_in),
-        .dir   (dir),
-        .oe    (oe),
-        .A_out (A_out),
-        .B_out (B_out)
+        .A   (A),
+        .B   (B),
+        .dir (dir),
+        .oe  (oe)
         );
         
     initial begin
         dir = 1;
         oe = 0;
-        A_in = 16'h391f;
-        B_in = 16'h0101;
         #15;
         oe = 1;
         #15;

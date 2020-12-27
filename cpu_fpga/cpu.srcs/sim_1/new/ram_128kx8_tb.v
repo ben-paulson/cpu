@@ -2,19 +2,21 @@
 
 module ram_128kx8_tb();
 
-    reg [7:0] data_in;
+    wire [7:0] data;
+    wire [7:0] data_in = 8'h34;
     reg [16:0] addr;
     reg ce1, ce2, we, oe;
-    wire [7:0] data_out;
+    
+    wire write = ~ce1 & ce2 & ~we;
+    assign data = write ? data_in : 8'hZZ;
     
     ram_128kx8 ram (
-        .data_in  (data_in),
-        .addr     (addr),
-        .ce1      (ce1),
-        .ce2      (ce2),
-        .we       (we),
-        .oe       (oe),
-        .data_out (data_out)
+        .data  (data),
+        .addr  (addr),
+        .ce1   (ce1),
+        .ce2   (ce2),
+        .we    (we),
+        .oe    (oe)
         );
         
     initial begin
@@ -24,7 +26,6 @@ module ram_128kx8_tb();
         oe = 0;
         we = 1;
         addr = 17'h00000;
-        data_in = 8'h34;
         #15;
         // Read from addr 5
         addr = 17'h00005;
